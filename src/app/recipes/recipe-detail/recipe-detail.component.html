@@ -1,0 +1,53 @@
+<!-- <p>recipe-detail works!</p> -->
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12"style="padding-left:0px;padding-right:0px" >
+      <h1><strong>Your selection</strong></h1>
+      <img [src]="recipe.imagePath" [alt]="recipe.recipeName" class="img-responsive" style="max-height:200px;border-radius:15px" >
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div class="row">
+      <br>
+      <div class="col-xs-12">
+        <div class="btn-group" appOpenDropdown >
+          <button class="btn btn-warning dropdown-toggle">Manage Recipe <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">To Shopping List</a></li>
+            <li><a href="#">Edit Recipe</a></li>
+            <li><a href="#">Delete Recipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading" [ngStyle]="{fontSize:'4rem'}">
+            <span [ngStyle]="{fontSize:'2.5rem'}">Name - </span>  <strong>{{recipe.recipeName}}</strong>
+          </div>
+          <div class="panel-body">
+            <div [ngStyle]="{fontSize:'2.3rem'}">
+              <span [ngStyle]="{fontSize:'1.8rem'}">Description - </span><strong>{{recipe.recipeDesc}}</strong>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-12">
+                <div [ngStyle]="{fontSize:'1.4srem'}" >
+                  <p>Ingredients - </p>
+                </div>
+                <div class="list-group">
+                  <div class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                    <strong [ngStyle]="{fontSize:'1.4rem'}" >{{ingredient.ingredientName}} - {{ingredient.amount}}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

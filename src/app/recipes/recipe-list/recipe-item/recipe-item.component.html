@@ -1,0 +1,10 @@
+<a href="#" (click)="showDetails()" class="list-group-item clearfix">
+  <div class="pull-left">
+    <p [ngStyle]="{fontSize:'3rem'}" >{{recipe.recipeName}}</p>
+    <p>{{recipe.recipeDesc}}</p>
+  </div>
+  <div class="pull-right">
+    <img [src]="recipe.imagePath" alt="{{recipe.recipeName}}" class="img-responsive" style="max-height:80px;border-radius:5px;" >
+  </div>
+</a>
+
