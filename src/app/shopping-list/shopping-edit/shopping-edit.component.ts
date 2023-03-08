@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { ShoppingListService } from 'src/app/services/shoppingList.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ShoppingEditComponent {
 
+  @ViewChild('amount') amount:ElementRef;
+
+  constructor(private sLService:ShoppingListService){}
+
+  addItem(ip:HTMLInputElement){
+    this.sLService.addToShoppingList(ip.value, this.amount.nativeElement.value);
+    this.sLService.listChanged.emit();
+  }
 }

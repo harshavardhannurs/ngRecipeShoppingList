@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesListService } from 'src/app/services/recipesList.service';
 import { Recipe } from 'src/app/models/recipe.model';
+import { ShoppingListService } from 'src/app/services/shoppingList.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,7 +14,7 @@ export class RecipeDetailComponent implements OnInit{
 
   clicked:boolean = false;
 
-  constructor(private rlService:RecipesListService){}
+  constructor(private rlService:RecipesListService, private sLService:ShoppingListService){}
 
   ngOnInit(){
     this.rlService.eventShowDetails.subscribe(
@@ -22,4 +23,9 @@ export class RecipeDetailComponent implements OnInit{
       }
     )
   }
+
+  addIngredients(){
+    this.rlService.addToShoppingList(this.recipe.ingredients);
+  }
+
 }

@@ -1,2 +1,4 @@
-<app-header></app-header>
-<app-recipes></app-recipes>
+<app-header (eventOpenNavMenu)="onOpenNav($event)" ></app-header>
+<app-recipes *ngIf="recipeClicked" ></app-recipes>
+<app-shopping-list *ngIf="shoppingListClicked" ></app-shopping-list>
+

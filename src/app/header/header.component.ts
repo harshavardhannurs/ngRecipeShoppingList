@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  recipeClicked:boolean = false;
+  shoppingListClicked :boolean = false;
+  @Output() eventOpenNavMenu = new EventEmitter<{menu:string, clicked:boolean}>();
+
+  openRecipe(){
+    this.recipeClicked = true;
+    this.eventOpenNavMenu.emit({menu:'recipe', clicked:this.recipeClicked})
+  }
+
+  openShoppingList(){
+    this.shoppingListClicked = true;
+    this.eventOpenNavMenu.emit({menu:'shoppingList', clicked:this.shoppingListClicked})
+  }
 
 }
